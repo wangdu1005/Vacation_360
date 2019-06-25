@@ -31,7 +31,8 @@ class VacationViewController: UIViewController {
   
   enum Media {
     static var photoArray = ["sindhu_beach.jpg", "grand_canyon.jpg", "underwater.jpg"]
-    static let videoURL = "https://s3.amazonaws.com/ray.wenderlich/elephant_safari.mp4"
+    static let videoURL = "https://www.radiantmediaplayer.com/media/bbb-360p.mp4"
+    static let video360URL = "https://bitmovin.com/player-content/playhouse-vr/progressive.mp4"
   }
   
   var currentView: UIView?
@@ -52,7 +53,7 @@ class VacationViewController: UIViewController {
     imageVRView.enableFullscreenButton = true
     imageVRView.delegate = self
     
-    videoVRView.load(from: URL(string: Media.videoURL))
+    videoVRView.load(from: URL(string: Media.video360URL))
     videoVRView.enableCardboardButton = true
     videoVRView.enableFullscreenButton = true
     videoVRView.delegate = self    
@@ -71,7 +72,7 @@ class VacationViewController: UIViewController {
   func setCurrentViewFromTouch(touchPoint point:CGPoint) {
     if imageVRView!.frame.contains(point) {
       currentView = imageVRView
-    } else  if videoVRView!.frame.contains(point) {
+    } else if videoVRView!.frame.contains(point) {
       currentView = videoVRView
     }
   }

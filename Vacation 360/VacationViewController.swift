@@ -133,7 +133,7 @@ extension VacationViewController: GVRVideoViewDelegate {
 
 class TouchView: UIView {
   override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-    if let vacationViewController = viewController() as? VacationViewController , event?.type == UIEventType.touches {
+    if let vacationViewController = viewController() as? VacationViewController , event?.type == UIEvent.EventType.touches {
       vacationViewController.setCurrentViewFromTouch(touchPoint: point)
     }
     return true
